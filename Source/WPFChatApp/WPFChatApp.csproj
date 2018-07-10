@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
+    <ApplicationIcon>Dapino-Summer-Holiday-Sun.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -222,16 +222,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Logo\TextTemplate.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="TextTemplate.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Logo\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AttachedProperties\ReadMe1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\Dapino-Summer-Holiday-Sun.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dapino-Summer-Holiday-Sun.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
