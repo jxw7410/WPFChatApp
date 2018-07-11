@@ -19,6 +19,8 @@ namespace WPFChatApp
                     return new ErrorPage();
                 case ApplicationPage.MainChat:
                     return new ChatPage();
+                case ApplicationPage.SignUp:
+                    return new SignUpPage();
                 default:
                     Debugger.Break();
                     return null;

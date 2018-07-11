@@ -10,6 +10,8 @@ namespace WPFChatApp.DataModels
     {
         Error = 0,
         Login = 1,
-        MainChat = 2,
+        SignUp = 2,
+        MainChat = 3,
+
     }
 }

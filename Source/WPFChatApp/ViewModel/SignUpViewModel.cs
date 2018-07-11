@@ -8,19 +8,18 @@ namespace WPFChatApp
     /// <summary>
     /// View Model class to describe the customized Window 
     /// </summary>
-    public class LoginViewModel : ViewModelBase
+    public class SignUpViewModel : ViewModelBase
     {
 
         #region Commands   
-        public ICommand LoginCommand { get; set; }
-        public ICommand SignUpPageCommand { get; set; }
+        public ICommand SignUpCommand { get; set; }
+        
         #endregion
 
         #region Constructors
-        public LoginViewModel()
+        public SignUpViewModel()
         {          
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
-            SignUpPageCommand = new RelayParameterizedCommand(async (parameter) => await SignUp(parameter));
+            SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUp(parameter));
         }
 
         /// <summary>
@@ -28,7 +27,7 @@ namespace WPFChatApp
         /// </summary>
         /// <param name="parameter">SecureString</param>
         /// <returns></returns>
-        public async Task Login(object parameter)
+        public async Task SignUp(object parameter)
         {
             #region Basic Approach
             /*
@@ -60,16 +59,10 @@ namespace WPFChatApp
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Error;
             await Task.Delay(1);
         }
-
-        public async Task SignUp(object parameter)
-        {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.SignUp;
-            await Task.Delay(1);
-        }
         #endregion
 
         #region Public Members
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.SignUp;
 
         public string Email {get; set;}
         public bool IsLoggingIn

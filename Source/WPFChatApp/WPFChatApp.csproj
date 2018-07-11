@@ -131,6 +131,9 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Security\SecureStringHelpers.cs" />
     <Compile Include="ValueConverter\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="ViewModel\Chat\DesignModel\ChatListDesignModel.cs" />
     <Compile Include="ViewModel\Chat\DesignModel\ChatListUserDesignModel.cs" />
     <Compile Include="ViewModel\ErrorPageViewModel.cs" />
+    <Compile Include="ViewModel\SignUpViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="Control\ChatListControl.xaml">
@@ -179,6 +183,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
