@@ -12,7 +12,7 @@
         MinWidth="{Binding MinWidth}"
         MinHeight="{Binding MinHeight}"
         Title="Chat App" Height="600" Width="600">
-    
+
     <WindowChrome.WindowChrome>
         <WindowChrome
             ResizeBorderThickness="{Binding ResizeBorderTHICCness, FallbackValue=10}"

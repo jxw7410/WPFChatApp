@@ -32,7 +32,7 @@
                                    Foreground="Gray"
                                    Padding="{TemplateBinding Padding}"
                                    VerticalAlignment="Center"
-                                   HorizontalAlignment="{TemplateBinding HorizontalAlignment}">                                 >
+                                   HorizontalAlignment="{TemplateBinding HorizontalAlignment}">                    
                           
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
@@ -92,7 +92,7 @@
                                    Padding="{TemplateBinding Padding}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:VisibilityPropertyConverter}}">                                >
+                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:VisibilityPropertyConverter}}">                
                            
                         </TextBlock>
                     </Grid>

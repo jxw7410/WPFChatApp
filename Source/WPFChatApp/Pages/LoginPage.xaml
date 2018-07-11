@@ -30,8 +30,8 @@
                 <StackPanel>
                         <TextBlock Text="Sign In" FontSize="30" Foreground="DarkBlue"/>
                         <TextBlock Text="Credit goes to AngelSix" FontSize="12" Foreground="LightGray"/>
-                        <TextBox Tag="Email"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}"/>
-                        <PasswordBox x:Name="PasswordText" Tag="Password" Style="{StaticResource PasswordPlaceHolder}"/>
+                        <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}"/>
+                        <PasswordBox x:Name="PasswordText" Tag="{Binding PasswordTag}" Style="{StaticResource PasswordPlaceHolder}"/>
                         <Button x:Name="Login" 
                                 local:IsBusyProperty.Value ="{Binding IsLoggingIn}"  
                                 HorizontalAlignment="Center" 

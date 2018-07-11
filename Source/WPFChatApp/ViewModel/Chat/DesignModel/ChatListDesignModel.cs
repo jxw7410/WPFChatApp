@@ -82,7 +82,7 @@ namespace WPFChatApp
                 {
                     Initials = "P9",
                     Name = "Person9",
-                    ProfilePictureColor = "Beige",
+                    ProfilePictureColor = "Black",
                     Message = "404: No message."
                 },
             };
