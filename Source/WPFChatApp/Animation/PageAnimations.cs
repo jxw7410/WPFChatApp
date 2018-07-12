@@ -10,7 +10,7 @@ namespace WPFChatApp
 /// </summary>
     public static class PageAnimations
     {
-        public static async Task SlideAndFadeInFromRight(this Page page, float seconds)
+        public static async Task SlideAndFadeInFromRightAsync(this Page page, float seconds)
         {
             var storyBoard = new Storyboard();
             storyBoard.AddSlideFromRight(seconds, page.WindowWidth);
@@ -20,7 +20,7 @@ namespace WPFChatApp
             await Task.Delay((int)seconds * 1000);
         }
 
-        public static async Task SlideAndFadeOutToRight(this Page page, float seconds)
+        public static async Task SlideAndFadeOutToRightAsync(this Page page, float seconds)
         {
             var storyBoard = new Storyboard();
             storyBoard.RemoveSlideToRight(seconds, page.WindowWidth);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFChatApp.DataModels
+namespace WPFChatApp.Core
 {
     public enum ApplicationPage
     {

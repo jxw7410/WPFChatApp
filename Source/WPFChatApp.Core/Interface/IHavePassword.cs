@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     /// <summary>
     /// An interface for a class that provides a securepassword

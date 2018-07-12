@@ -1,4 +1,4 @@
-﻿namespace WPFChatApp
+﻿namespace WPFChatApp.Core
 {
     public class ErrorPageViewModel : ViewModelBase
     {

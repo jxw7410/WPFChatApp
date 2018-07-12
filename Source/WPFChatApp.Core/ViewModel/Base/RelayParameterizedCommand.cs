@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 { 
     public class RelayParameterizedCommand : ICommand
     {
@@ -14,11 +14,9 @@ namespace WPFChatApp
         }
 
 
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
+        public event EventHandler CanExecuteChanged = (sender, e) => { };
+
+          
 
 
         public bool CanExecute(object parameter)

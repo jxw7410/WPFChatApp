@@ -118,9 +118,6 @@
     <Compile Include="Control\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\ApplicationPage.cs" />
-    <Compile Include="Expressions\ExpressionHelper.cs" />
-    <Compile Include="Interface\IHavePassword.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\ErrorPage.xaml.cs">
       <DependentUpon>ErrorPage.xaml</DependentUpon>
@@ -134,21 +131,10 @@
     <Compile Include="Pages\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Security\SecureStringHelpers.cs" />
     <Compile Include="ValueConverter\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Compile Include="ValueConverter\StringRGBToBrushConverter.cs" />
     <Compile Include="ValueConverter\VisibilityPropertyConverter.cs" />
-    <Compile Include="ViewModel\Base\RelayCommand.cs" />
-    <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
-    <Compile Include="ViewModel\Base\ViewModelBase.cs" />
-    <Compile Include="ViewModel\Chat\ChatListViewModel.cs" />
-    <Compile Include="ViewModel\Chat\ChatListUserViewModel.cs" />
-    <Compile Include="ViewModel\Chat\DesignModel\ChatListDesignModel.cs" />
-    <Compile Include="ViewModel\Chat\DesignModel\ChatListUserDesignModel.cs" />
-    <Compile Include="ViewModel\ErrorPageViewModel.cs" />
-    <Compile Include="ViewModel\SignUpViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="Control\ChatListControl.xaml">
       <SubType>Designer</SubType>
@@ -240,6 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Dapino-Summer-Holiday-Sun.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPFChatApp.Core\WPFChatApp.Core.csproj">
+      <Project>{28c9ee7e-13ae-44f6-80f5-c5cc58f02e67}</Project>
+      <Name>WPFChatApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

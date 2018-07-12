@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFChatApp"
+        xmlns:core="clr-namespace:WPFChatApp.Core;assembly=WPFChatApp.Core"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -76,7 +77,7 @@
                                             </TextBlock>
                                         </Viewbox>
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,0,0,0">
-                                            <Button Content ="__" Style="{StaticResource WindowControlButton}" CommandParameter ="{Binding RelativeSource={RelativeSource TemplatedParent}}"  Command="{Binding MinimizeCommand}"/>
+                                            <Button Content ="__" Style="{StaticResource WindowControlButton}" CommandParameter ="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding MinimizeCommand}"/>
                                             <Button Content ="[ ]" Style="{StaticResource WindowControlButton}" CommandParameter ="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding MaximizeCommand}"/>
                                             <Button Content ="X" Style="{StaticResource WindowControlButton}" CommandParameter ="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{Binding CloseCommand}"/>
                                         </StackPanel>
@@ -116,7 +117,7 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="1"  x:Name="MainFrame" Content ="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}">
+        <Frame Grid.Column="1"  x:Name="MainFrame" Content ="{Binding ApplicationViewModel.CurrentPage, ElementName=MainUI, Converter={local:ApplicationPageValueConverter}}">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint ="1,0">
                     <GradientStop Color="azure" Offset="1.3"/>

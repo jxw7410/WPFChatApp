@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

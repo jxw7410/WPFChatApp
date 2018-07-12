@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using WPFChatApp.Core;
 
 namespace WPFChatApp
 {
@@ -17,9 +18,9 @@ namespace WPFChatApp
         #endregion
         #region public properties:
         //enter
-        public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
+        public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRightAsync;
         //exit
-        public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToRight;
+        public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToRightAsync;
 
         //Duration of animation 
         public float SlideSeconds { get; set; } = 1.5f;
@@ -49,17 +50,17 @@ namespace WPFChatApp
             if (this.PageLoadAnimation != PageAnimation.None)
                 this.Visibility = Visibility.Collapsed;
             //monitoring for page loading
-            this.Loaded += BasePage_Loaded;
+            this.Loaded += BasePage_LoadedAsync;
             this.ViewModel = new VM();
         }
 
         #region Animation Load/Unload
-        private async void BasePage_Loaded(object sender, RoutedEventArgs e)
+        private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            await AnimateInAsync();
         }
 
-        public async Task AnimateIn()
+        public async Task AnimateInAsync()
         {
             if (this.PageLoadAnimation == PageAnimation.None)
             {
@@ -67,14 +68,14 @@ namespace WPFChatApp
             }
             switch (this.PageLoadAnimation)
             {
-                case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
+                case PageAnimation.SlideAndFadeInFromRightAsync:
+                    await this.SlideAndFadeInFromRightAsync(this.SlideSeconds);
                     break;
             }
         }
 
 
-        public async Task AnimateOut()
+        public async Task AnimateOutAsync()
         {
             if (this.PageUnloadAnimation == PageAnimation.None)
             {
@@ -83,8 +84,8 @@ namespace WPFChatApp
            
            switch (this.PageUnloadAnimation)
            {
-                case PageAnimation.SlideAndFadeOutToRight:
-                    await this.SlideAndFadeOutToRight(this.SlideSeconds);
+                case PageAnimation.SlideAndFadeOutToRightAsync:
+                    await this.SlideAndFadeOutToRightAsync(this.SlideSeconds);
                     break;
            }
            

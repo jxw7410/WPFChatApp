@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     public static class SecureStringHelpers
     {

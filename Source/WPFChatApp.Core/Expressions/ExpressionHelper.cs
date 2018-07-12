@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     public static class ExpressionHelper
     {

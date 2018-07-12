@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using WPFChatApp.DataModels;
+using WPFChatApp.Core;
+
 
 namespace WPFChatApp
 {
@@ -26,6 +27,7 @@ namespace WPFChatApp
              {
                  WindowResized();
              };
+
             MinimizeCommand = new RelayCommand(() => myWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => myWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(() => myWindow.Close());
@@ -73,18 +75,6 @@ namespace WPFChatApp
         public int MinHeight { get; set; } = 400;
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
-        public ApplicationPage CurrentPage
-        {
-            get
-            {
-                return currentPage;
-            }
-            set
-            {
-                currentPage = value;
-                PropertyChangedEvent("CurrentPage");
-            }
-        }
         public void WindowResized()
         {
             PropertyChangedEvent("ResizeBorderTHICCness");
@@ -98,7 +88,7 @@ namespace WPFChatApp
         private Window myWindow;
         private int outerMarginSize = 10;
         private int windowCurveEdge = 10;
-        private ApplicationPage currentPage = ApplicationPage.Login;
+       
         #endregion
 
     }

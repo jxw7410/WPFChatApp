@@ -1,4 +1,6 @@
-﻿namespace WPFChatApp
+﻿using WPFChatApp.Core;
+
+namespace WPFChatApp
 {
     /// <summary>
     /// /// Interaction logic for ErrorPage.xaml

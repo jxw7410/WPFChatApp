@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     /// <summary>
     /// An pre-initialized ChatListUser for modeling at design time (fall back)

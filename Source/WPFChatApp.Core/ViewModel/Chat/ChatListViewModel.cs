@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     /// <summary>
     /// View Model for each chatlistuser

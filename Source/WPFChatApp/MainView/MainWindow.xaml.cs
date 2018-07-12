@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using WPFChatApp;
+using WPFChatApp.Core;
 
 namespace WPFChatApp
 {
@@ -8,6 +8,7 @@ namespace WPFChatApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ApplicationViewModel ApplicationViewModel => new ApplicationViewModel();
         public MainWindow()
         {
             InitializeComponent();

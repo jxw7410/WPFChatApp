@@ -1,9 +1,7 @@
 ﻿using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using WPFChatApp.DataModels;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     /// <summary>
     /// View Model class to describe the customized Window 
@@ -19,8 +17,8 @@ namespace WPFChatApp
         #region Constructors
         public LoginViewModel()
         {          
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
-            SignUpPageCommand = new RelayParameterizedCommand(async (parameter) => await SignUp(parameter));
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+            SignUpPageCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
         }
 
         /// <summary>
@@ -28,7 +26,7 @@ namespace WPFChatApp
         /// </summary>
         /// <param name="parameter">SecureString</param>
         /// <returns></returns>
-        public async Task Login(object parameter)
+        public async Task LoginAsync(object parameter)
         {
             #region Basic Approach
             /*
@@ -57,13 +55,14 @@ namespace WPFChatApp
                  (parameter as IHavePassword).SecurePassword.Unsecure();
  
              });
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Error;
+            
+           // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Error;
             await Task.Delay(1);
         }
 
-        public async Task SignUp(object parameter)
+        public async Task SignUpAsync(object parameter)
         {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.SignUp;
+           // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.SignUp;
             await Task.Delay(1);
         }
         #endregion

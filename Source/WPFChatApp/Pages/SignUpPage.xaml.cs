@@ -1,4 +1,5 @@
 ﻿using System.Security;
+using WPFChatApp.Core;
 
 namespace WPFChatApp
 {

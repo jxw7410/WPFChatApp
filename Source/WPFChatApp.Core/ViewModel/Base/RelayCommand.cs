@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WPFChatApp
+namespace WPFChatApp.Core
 {
     public class RelayCommand : ICommand
     {
