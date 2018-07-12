@@ -55,14 +55,14 @@ namespace WPFChatApp.Core
                  (parameter as IHavePassword).SecurePassword.Unsecure();
  
              });
-            
-           // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Error;
+
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Error;
             await Task.Delay(1);
         }
 
         public async Task SignUpAsync(object parameter)
         {
-           // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.SignUp;
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.SignUp;
             await Task.Delay(1);
         }
         #endregion
