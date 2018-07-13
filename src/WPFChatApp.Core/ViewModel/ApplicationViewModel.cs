@@ -2,7 +2,13 @@
 {
     public class ApplicationViewModel : ViewModelBase
     {
+        #region Private Members
         private ApplicationPage currentPage = ApplicationPage.Login;
+        private bool sideMenuVisible = false;
+
+        #endregion
+
+        #region Public Properties
         public ApplicationPage CurrentPage
         {
             get
@@ -15,7 +21,6 @@
                 PropertyChangedEvent("CurrentPage");
             }
         }
-
         public bool SideMenuVisible
         {
             get
@@ -28,7 +33,7 @@
                 PropertyChangedEvent("SideMenuVisible");
             }
         }
-        private bool sideMenuVisible = false;
-        
+        #endregion
+
     }
 }

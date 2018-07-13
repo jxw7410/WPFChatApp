@@ -8,6 +8,8 @@ namespace WPFChatApp
     {
         #region Public Events
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> GenericTypeChanged = (sender, e) => { };
+
+        public event Action<DependencyObject, object> GenericValueUpdated = (sender, value) => { };
         #endregion
 
         #region Public Properties
@@ -28,13 +30,32 @@ namespace WPFChatApp
              DependencyProperty.RegisterAttached("Value", 
                                                   typeof(Property),
                                                   typeof(BaseAttachedProperties<GenericType, Property>),
-                                                  new PropertyMetadata(new PropertyChangedCallback(OnGenericPropertyChanged)));
+                                                  new UIPropertyMetadata(default(Property), 
+                                                  new PropertyChangedCallback(OnGenericPropertyChanged),
+                                                  new CoerceValueCallback(OnGenericPropertyUpdated)
+                                                  ));
         private static void OnGenericPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             //call base function
             Instance.OnGenericTypeChanged(d, e);
             // call event listeners
             Instance.GenericTypeChanged(d, e);
+        }
+
+        /// <summary>
+        /// Call back when property is updated even if the property is till the same, i.e true to true
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+
+        private static object OnGenericPropertyUpdated(DependencyObject d, object value)
+        {
+            //call base function
+            Instance.OnGenericValueUpdated(d, value);
+            // call event listeners
+            Instance.GenericValueUpdated(d, value);
+
+            return value;
         }
 
         /// <summary>
@@ -53,6 +74,8 @@ namespace WPFChatApp
         #region Event Methods
         //overload function for specific UI entity that inherits from Base class
         public virtual void OnGenericTypeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e){}
+
+        public virtual void OnGenericValueUpdated(DependencyObject sender, object value) { }
         #endregion
     }
 }

@@ -111,6 +111,7 @@
     <Compile Include="Animation\StoryBoardAnimationHelper.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperties.cs" />
     <Compile Include="AttachedProperties\PasswordBoxProperties.cs" />
     <Compile Include="Control\ChatListControl.xaml.cs">
       <DependentUpon>ChatListControl.xaml</DependentUpon>
