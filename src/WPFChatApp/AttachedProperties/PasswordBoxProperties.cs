@@ -7,7 +7,7 @@ namespace WPFChatApp
     //Refer to ReadMe1.txt for a more specific approach
     public class MonitorPasswordProperty : BaseAttachedProperties<MonitorPasswordProperty, bool>
     {
-        public override void OnGenericTypeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public override void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var passwordBox = (sender as PasswordBox);
 

@@ -86,7 +86,7 @@ namespace WPFChatApp
         #endregion
         #region Private Members
         private Window myWindow;
-        private int outerMarginSize = 10;
+        private int outerMarginSize = 2;
         private int windowCurveEdge = 10;
        
         #endregion

@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="Animation\FrameworkAnimations.cs" />
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryBoardAnimationHelper.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />

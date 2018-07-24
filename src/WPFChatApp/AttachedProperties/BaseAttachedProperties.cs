@@ -3,20 +3,20 @@ using System.Windows;
 
 namespace WPFChatApp
 {
-    public abstract class BaseAttachedProperties<GenericType, Property>
-        where GenericType : BaseAttachedProperties<GenericType,Property>, new()
+    public abstract class BaseAttachedProperties<Parent, Property>
+        where Parent : new()
     {
         #region Public Events
-        public event Action<DependencyObject, DependencyPropertyChangedEventArgs> GenericTypeChanged = (sender, e) => { };
+        public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
 
-        public event Action<DependencyObject, object> GenericValueUpdated = (sender, value) => { };
+        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
         #endregion
 
         #region Public Properties
         /// <summary>
         /// Singleton instance of base class
         /// </summary>
-        public static GenericType Instance { get; private set; } = new GenericType();
+        public static Parent Instance { get; private set; } = new Parent();
         #endregion
 
         #region Attached Property Definitions
@@ -26,20 +26,20 @@ namespace WPFChatApp
         /// <param name="d">UI entity that has requires this attached property changed</param>
         /// <param name="e">The argument for the event</param>
         /// 
-        public static readonly DependencyProperty GenericProperty =
+        public static readonly DependencyProperty ValueProperty =
              DependencyProperty.RegisterAttached("Value", 
                                                   typeof(Property),
-                                                  typeof(BaseAttachedProperties<GenericType, Property>),
+                                                  typeof(BaseAttachedProperties<Parent, Property>),
                                                   new UIPropertyMetadata(default(Property), 
-                                                  new PropertyChangedCallback(OnGenericPropertyChanged),
-                                                  new CoerceValueCallback(OnGenericPropertyUpdated)
+                                                  new PropertyChangedCallback(OnPropertyChanged),
+                                                  new CoerceValueCallback(OnPropertyUpdated)
                                                   ));
-        private static void OnGenericPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             //call base function
-            Instance.OnGenericTypeChanged(d, e);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.OnValueChanged(d, e);
             // call event listeners
-            Instance.GenericTypeChanged(d, e);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.ValueChanged(d, e);
         }
 
         /// <summary>
@@ -48,12 +48,12 @@ namespace WPFChatApp
         /// <param name="d"></param>
         /// <param name="e"></param>
 
-        private static object OnGenericPropertyUpdated(DependencyObject d, object value)
+        private static object OnPropertyUpdated(DependencyObject d, object value)
         {
             //call base function
-            Instance.OnGenericValueUpdated(d, value);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.OnValueUpdated(d, value);
             // call event listeners
-            Instance.GenericValueUpdated(d, value);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.ValueUpdated(d, value);
 
             return value;
         }
@@ -65,17 +65,17 @@ namespace WPFChatApp
         ///     return (Property) d.GetValue(GenericProperty);
         ///}
         /// </summary>
-        public static Property GetValue(DependencyObject d) => (Property)d.GetValue(GenericProperty);
+        public static Property GetValue(DependencyObject d) => (Property)d.GetValue(ValueProperty);
 
-        public static void SetValue(DependencyObject d, Property Value) => d.SetValue(GenericProperty, Value);
+        public static void SetValue(DependencyObject d, Property Value) => d.SetValue(ValueProperty, Value);
 
         #endregion
 
         #region Event Methods
         //overload function for specific UI entity that inherits from Base class
-        public virtual void OnGenericTypeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e){}
+        public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e){}
 
-        public virtual void OnGenericValueUpdated(DependencyObject sender, object value) { }
+        public virtual void OnValueUpdated(DependencyObject sender, object value) { }
         #endregion
     }
 }

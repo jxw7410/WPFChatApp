@@ -14,11 +14,11 @@
     <Grid>
         <Grid.Background>Transparent</Grid.Background>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility ="Auto" >
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center" ClipToBounds="True">
                 <Border Background="{StaticResource BackGroundVeryLightBrush}"
                         CornerRadius="10"
-                        Padding="15,50,15,15"
-                        Width="400"
+                        Padding="20,80,20,20"
+                        Width="250"
                         Margin="50, 50, 50, 0">
        
                 <StackPanel>
@@ -26,11 +26,12 @@
                         <TextBlock Text="Credit goes to AngelSix" FontSize="12" Foreground="LightGray"/>
                         <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}"/>
                         <PasswordBox x:Name="PasswordText" Tag="{Binding PasswordTag}" Style="{StaticResource PasswordPlaceHolder}"/>
-                        <Button x:Name="Login" 
-                                local:IsBusyProperty.Value ="{Binding IsLoggingIn}"  
+                        <Button x:Name="Login"                
+                                local:IsBusyProperty.Value ="{Binding IsLoggingIn}"                               
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center"
-                                FontWeight="Bold" 
+                                Margin ="40 10"
+                                FontWeight="Bold"
                                 Command="{Binding LoginCommand}" 
                                 CommandParameter="{Binding ElementName=mLoginPage}"/>
                     </StackPanel>

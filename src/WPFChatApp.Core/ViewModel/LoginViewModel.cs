@@ -62,6 +62,9 @@ namespace WPFChatApp.Core
 
         public async Task SignUpAsync(object parameter)
         {
+
+            IoC.Get<ApplicationViewModel>().SideMenuVisible ^= true;
+            return;
             IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.SignUp;
             await Task.Delay(1);
         }

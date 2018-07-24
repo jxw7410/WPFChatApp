@@ -6,19 +6,62 @@ namespace WPFChatApp
 {
     public static class StoryBoardAnimationHelper
     {
-        
-        public static void AddSlideFromRight(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f)
+
+        public static void AddSlideFromRight(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
         {
             var Animation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = new Thickness(offset, 0, -offset, 0),
+                From = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
                 To = new Thickness(0),
                 DecelerationRatio = decelerationRatio
             };
             Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));
             storyBoard.Children.Add(Animation);
         }
+
+        public static void AddSlideFromLeft(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+        {
+            var Animation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
+                To = new Thickness(0),
+                DecelerationRatio = decelerationRatio
+            };
+            Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));
+            storyBoard.Children.Add(Animation);
+        }
+
+
+        public static void RemoveSlideToRight(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+        {
+            var Animation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(0),
+                To = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
+                DecelerationRatio = decelerationRatio
+            };
+            Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));
+            storyBoard.Children.Add(Animation);
+        }
+
+
+        public static void RemoveSlideToLeft(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true) 
+        {
+            var Animation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(0),
+                To = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
+                DecelerationRatio = decelerationRatio
+            };
+            Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));
+            storyBoard.Children.Add(Animation);
+        }
+
+
 
         public static void AddFadeInAugment(this Storyboard storyBoard, float seconds)
         {
@@ -29,19 +72,6 @@ namespace WPFChatApp
                 To = 1,
             };
             Storyboard.SetTargetProperty(Animation, new PropertyPath("Opacity"));
-            storyBoard.Children.Add(Animation);
-        }
-
-        public static void RemoveSlideToRight(this Storyboard storyBoard, float seconds, double offset, float decelerationRatio = 0.9f)
-        {
-            var Animation = new ThicknessAnimation
-            {
-                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = new Thickness(0),
-                To = new Thickness(offset, 0, -offset, 0),
-                DecelerationRatio = decelerationRatio
-            };
-            Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));
             storyBoard.Children.Add(Animation);
         }
 
@@ -56,6 +86,7 @@ namespace WPFChatApp
             Storyboard.SetTargetProperty(Animation, new PropertyPath("Opacity"));
             storyBoard.Children.Add(Animation);
         }
+
 
     }
 }
