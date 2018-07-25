@@ -123,14 +123,13 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="1"  
-               x:Name="MainFrame" 
+        <local:PageHost Grid.Column="1"                
                d:DataContext=""
                DataContext ="{Binding ApplicationViewModel.CurrentPage, 
                           Source={x:Static local:ApplicationPageLocator.Instance}, 
                           Converter={local:ApplicationPageValueConverter}}"
-               Content="{Binding}">
-        </Frame>
+               CurrentPage="{Binding}">
+        </local:PageHost>
 
 
         <local:SideMenuControl  local:AnimateSlideInFromLeftProperty.Value ="{Binding ApplicationViewModel.SideMenuVisible, 

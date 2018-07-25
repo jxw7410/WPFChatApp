@@ -31,9 +31,8 @@ namespace WPFChatApp
             MinimizeCommand = new RelayCommand(() => myWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => myWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(() => myWindow.Close());
-            MenuCommand = new RelayCommand(
-                () => SystemCommands.ShowSystemMenu(myWindow, myWindow.PointToScreen(Mouse.GetPosition(myWindow))));
-
+            MenuCommand = 
+                new RelayCommand(() => SystemCommands.ShowSystemMenu(myWindow, myWindow.PointToScreen(Mouse.GetPosition(myWindow))));
         }
         #endregion
         #region public Properties

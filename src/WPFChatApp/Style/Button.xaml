@@ -98,14 +98,22 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="SkyBlue" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation 
+                                        To="SkyBlue" 
+                                        Duration="0:0:0.3" 
+                                        Storyboard.TargetName="border" 
+                                        Storyboard.TargetProperty="Background.Color"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="Orange" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation 
+                                        To="Orange" 
+                                        Duration="0:0:0.3" 
+                                        Storyboard.TargetName="border" 
+                                        Storyboard.TargetProperty="Background.Color"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>

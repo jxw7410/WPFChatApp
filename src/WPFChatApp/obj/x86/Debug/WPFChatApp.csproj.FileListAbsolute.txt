@@ -35,3 +35,5 @@ C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\WPFChatApp.Propert
 C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\WPFChatApp.csproj.GenerateResource.Cache
 C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\WPFChatApp.exe
 C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\WPFChatApp.pdb
+C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\Control\PageHost.g.cs
+C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\obj\x86\Debug\Control\PageHost.baml
