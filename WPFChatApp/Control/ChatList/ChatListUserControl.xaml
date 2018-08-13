@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="WPFChatApp.ChatListUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFChatApp"
+             xmlns:core="clr-namespace:WPFChatApp.Core;assembly=WPFChatApp.Core"
+             mc:Ignorable="d" 
+             Height="60"
+             d:DesignHeight="60" d:DesignWidth="300">
+    <!--The d: means the attributes are applied during design time(while you're designing), not runtime-->
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border x:Name="Background" Background="white">
+                            <Grid x:Name="Container" d:DataContext="{x:Static core:ChatListUserDesignModel.Instance}" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <!-- New Message indicator page-->                          
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Border Tag-->
+                            <Border Background="Crimson" Width="3" 
+                                    HorizontalAlignment="Left" 
+                                    Visibility="{Binding IsNewContentAvailable, Converter={local:VisibilityPropertyConverter}, ConverterParameter=True}"/>
+                            <!--Profile-->
+                            <Border Grid.Column="0" Padding="8">
+                                <Border Background="{Binding ProfilePictureColor}" 
+                                        Width="{Binding ActualHeight, RelativeSource={RelativeSource self}}"
+                                        CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource self}}">
+                                        <TextBlock  Text="{Binding Initials}"
+                                                    Foreground="White" 
+                                                    FontWeight="bold" 
+                                                    FontSize="10" 
+                                                    VerticalAlignment="center" 
+                                                    HorizontalAlignment="Center"/>
+                                </Border>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="center">
+                                <TextBlock x:Name="Name" FontWeight="Bold" FontSize="10" Text="{Binding Name}" Foreground="{Binding ProfilePictureColor}"/>
+                                <TextBlock x:Name="ChatContent" FontSize="10" Foreground="LightGray" Text="{Binding Message}" Padding="2"/>
+                            </StackPanel>
+                        </Grid>
+                        </Border>
+                        <!--Hover Effect--> 
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="LightBlue" Duration="0:0:0.2" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation To="white" Duration="0:0:0.2" Storyboard.TargetName="ChatContent" Storyboard.TargetProperty="Foreground.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Transparent" Duration="0:0:0.2" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation To="LightGray" Duration="0:0:0.2" Storyboard.TargetName="ChatContent" Storyboard.TargetProperty="Foreground.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Container" Value="#FFF4F4F4"/>
+                            </Trigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter Property="Background" TargetName="Background" Value="LightGray"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ContentControl Style="{StaticResource ContentStyle}"/>
+
+</UserControl>

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="WPFChatApp.SideMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFChatApp"
+             xmlns:core="clr-namespace:WPFChatApp.Core;assembly=WPFChatApp.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border Background="white">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                <!--Top Menu-->
+                    <Grid Height ="50" Background="SkyBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    <!-- Main options-->
+                        <StackPanel Orientation ="Horizontal">
+                            <Button Style="{StaticResource IconButton}" Content="Contact"/>
+                            <Button Style="{StaticResource IconButton}" Content="Chat"/>
+                            <Button Style="{StaticResource IconButton}" Content="Meet"/>
+                        </StackPanel>
+                    <!--Setting Button-->
+                        <Button Grid.Column="2" Style="{StaticResource IconButton}" Content="Options"/>
+                    </Grid>
+                    <ContentPresenter Grid.Row ="1"/>
+                </Grid>
+            </Border>
+            <!--User Content injection-->
+            
+        </ControlTemplate>
+    </UserControl.Template>
+    
+</UserControl>
