@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp\App.xaml
-111630568832
+15-741343842
 
-291146527613
+41-1463734073
 17-1630584199
-Control\ChatListControl.xaml;Control\Chat\ChatListUserControl.xaml;Control\SideMenuControl.xaml;MainView\MainWindow.xaml;Pages\ErrorPage.xaml;Pages\ChatPage.xaml;Pages\LoginPage.xaml;Pages\SignUpPage.xaml;Style\Button.xaml;Style\Colors.xaml;Style\Text.xaml;
+Control\ChatMessage\ChatMessageListControl.xaml;Control\ChatList\ChatListControl.xaml;Control\ChatList\ChatListUserControl.xaml;Control\ChatMessage\ChatMessageListUserControl.xaml;Control\PageHost.xaml;Control\SideMenuControl.xaml;MainView\MainWindow.xaml;Pages\EmptyPage.xaml;Pages\ErrorPage.xaml;Pages\ChatPage.xaml;Pages\LoginPage.xaml;Pages\SignUpPage.xaml;Style\Button.xaml;Style\Colors.xaml;Style\Text.xaml;
 
 True
 

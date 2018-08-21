@@ -55,9 +55,7 @@ namespace WPFChatApp.Core
                  (parameter as IHavePassword).SecurePassword.Unsecure();
                  IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.MainChat);
 
-             });
-
-        
+             });      
         }
 
         public async Task SignUpAsync(object parameter)

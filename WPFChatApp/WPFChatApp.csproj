@@ -150,9 +150,14 @@
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverter\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverter\ChatBubble\ChatBubbleBackgroundColor.cs" />
     <Compile Include="ValueConverter\IocConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="ValueConverter\ReadTimeReformatConverter.cs" />
+    <Compile Include="ValueConverter\ChatBubble\ChatBubbleTriangleAlignment.cs" />
     <Compile Include="ValueConverter\StringRGBToBrushConverter.cs" />
+    <Compile Include="ValueConverter\SentTimeReformatConverter.cs" />
+    <Compile Include="ValueConverter\SentByMeAlignmentConverter.cs" />
     <Compile Include="ValueConverter\VisibilityPropertyConverter.cs" />
     <Compile Include="ViewModel\ApplicationPageLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />

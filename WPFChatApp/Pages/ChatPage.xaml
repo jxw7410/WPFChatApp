@@ -6,12 +6,12 @@
       xmlns:local="clr-namespace:WPFChatApp"
       xmlns:core="clr-namespace:WPFChatApp.Core;assembly=WPFChatApp.Core"
       mc:Ignorable="d" 
-      x:Name="mLoginPage"
+      x:Name="mChatPage"
       d:DesignHeight="700" d:DesignWidth="700"
-      Title="LoginPage">
+      Title="mChatPage">
 
 
-    <Border>
+    <Border VerticalAlignment="Bottom">
         <local:ChatMessageListControl/>
     </Border>
 </local:BasePage>
