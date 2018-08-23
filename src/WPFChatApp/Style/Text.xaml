@@ -113,7 +113,7 @@
     </Style>
     <!--Text Block animation-->
     <Style TargetType="{x:Type TextBlock}" x:Key="FadingText">
-        <Setter Property="Text" Value="Loading..."/>
+        <Setter Property="Text" Value="Wait..."/>
         <Style.Resources>
             <Storyboard x:Key="Fade">
                 <DoubleAnimation          

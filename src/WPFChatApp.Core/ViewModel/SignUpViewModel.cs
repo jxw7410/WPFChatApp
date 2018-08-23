@@ -11,13 +11,14 @@ namespace WPFChatApp.Core
 
         #region Commands   
         public ICommand SignUpCommand { get; set; }
-        
+        public ICommand LoginPageCommand { get; set; }
         #endregion
 
         #region Constructors
         public SignUpViewModel()
         {          
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
+            LoginPageCommand = new RelayCommand(async () => await LoginAsync());
         }
 
         /// <summary>
@@ -47,14 +48,19 @@ namespace WPFChatApp.Core
             #endregion
 
             //Advanced Approach
-            await RunCommand(() => this.IsLoggingIn, async () =>
+            await RunCommand(() => this.IsSigningIn, async () =>
              {
-                 await Task.Delay(3000);                
+                 await Task.Delay(1500);                
                  var email = this.Email;
                  (parameter as IHavePassword).SecurePassword.Unsecure();
- 
+                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Error);
              });
-           // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Error;
+           
+        }
+
+        public async Task LoginAsync()
+        {
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
             await Task.Delay(1);
         }
         #endregion
@@ -63,21 +69,21 @@ namespace WPFChatApp.Core
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.SignUp;
 
         public string Email {get; set;}
-        public bool IsLoggingIn
+        public bool IsSigningIn
         {
             get
             {
-                return LogInFlag;
+                return SignInFlag;
             }
             set
             {
-                LogInFlag = value;
-                PropertyChangedEvent("IsLoggingIn");
+                SignInFlag = value;
+                PropertyChangedEvent("IsSigningIn");
             }
         }//Flagging the Login Button
         #endregion
 
-        private bool LogInFlag;
+        private bool SignInFlag;
 
         public string EmailTag { get; set; } = "Email";
         public string PasswordTag { get; set; } = "Password";

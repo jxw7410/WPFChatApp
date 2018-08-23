@@ -1,7 +1,0 @@
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\bin\Debug\WPFChatApp.Core.dll
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\bin\Debug\WPFChatApp.Core.pdb
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\bin\Debug\Ninject.dll
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\bin\Debug\Ninject.xml
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\obj\Debug\WPFChatApp.Core.dll
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\obj\Debug\WPFChatApp.Core.pdb
-C:\Users\jwu08\Desktop\C#\WPFChatApp\WPFChatApp.Core\obj\Debug\WPFChatApp.Core.csprojResolveAssemblyReference.cache

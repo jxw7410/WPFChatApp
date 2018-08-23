@@ -1,7 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using WPFChatApp.Core;
 
 namespace WPFChatApp
 {
@@ -29,6 +31,13 @@ namespace WPFChatApp
         public PageHost()
         {
             InitializeComponent();
+
+
+            //If we are in design mode show page plz
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                this.NewPage.Content = new ApplicationPageValueConverter().Convert(IoC.Get<ApplicationViewModel>().CurrentPage);
+            }
         }
         #endregion
 
@@ -40,14 +49,20 @@ namespace WPFChatApp
 
             //temp variable to old new which will replace old, after new has been resetted
             var oldPageContent = newPageFrame.Content;
+
             newPageFrame.Content = null;
+
             oldPageFrame.Content = oldPageContent;
 
-            //Animiate previous page
+            //Animiate previous page, and remove referene to old page by making old page non-existent
             if (oldPageContent is BasePage oldPage)
             {
                 oldPage.IsAnimateOut = true;
-                Task.Run(oldPage.AnimateOutAsync);//running a task with no await
+    
+                Task.Delay((int)(oldPage.SlideSeconds*1000)).ContinueWith((t) =>
+                {
+                    Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
+                });
             }            
             //set the new content 
             newPageFrame.Content = e.NewValue;

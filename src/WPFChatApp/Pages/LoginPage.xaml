@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       x:Name="mLoginPage"
       d:DesignHeight="700" d:DesignWidth="700"
-      Title="LoginPage">
+      >
    
 
     <Grid>
@@ -24,9 +24,11 @@
                 <StackPanel>
                         <TextBlock Text="Sign In" FontSize="30" Foreground="DarkBlue"/>
                         <TextBlock Text="Credit goes to AngelSix" FontSize="12" Foreground="LightGray"/>
-                        <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}"/>
+                        <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}" local:FocusProperty.Value ="True"/>
                         <PasswordBox x:Name="PasswordText" Tag="{Binding PasswordTag}" Style="{StaticResource PasswordPlaceHolder}"/>
-                        <Button x:Name="Login"                
+                        <!--Login Button IsDefault allows Enter to trigger the button-->
+                        <Button x:Name="Login"     
+                                IsDefault="True"
                                 local:IsBusyProperty.Value ="{Binding IsLoggingIn}"                               
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center"
@@ -36,9 +38,11 @@
                                 CommandParameter="{Binding ElementName=mLoginPage}"/>
                     </StackPanel>
                 </Border>
-                <Button Content="I don't have an account" HorizontalAlignment="Center" Style="{StaticResource TextButton}"
-                         Command="{Binding SignUpPageCommand}" 
-                         CommandParameter="{Binding ElementName=mLoginPage}"
+                <Button Content="I don't have an account" 
+                        HorizontalAlignment="Center" 
+                        Style="{StaticResource TextButton}"
+                        Command="{Binding SignUpPageCommand}" 
+                        CommandParameter="{Binding ElementName=mLoginPage}"
                         />
             </StackPanel>
         </ScrollViewer>

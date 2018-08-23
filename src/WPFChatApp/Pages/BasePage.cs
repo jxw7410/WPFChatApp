@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WPFChatApp.Core;
@@ -8,7 +9,7 @@ namespace WPFChatApp
     /// <summary>
     /// base page for all pages
     /// </summary>
-    public class BasePage : Page
+    public class BasePage : UserControl
     {
         #region public properties:
         //enter
@@ -20,12 +21,15 @@ namespace WPFChatApp
         public bool IsAnimateOut { get; set; } 
 
         //Duration of animation 
-        public float SlideInSeconds { get; set; } = 1.5f;
-        public float SlideOutSeconds { get; set; } = 0.75f;
+        public float SlideSeconds { get; set; } = 0.3f;
+     
         #endregion
 
         public BasePage()
         {
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             if (this.PageLoadAnimation != PageAnimation.None)
                 this.Visibility = Visibility.Collapsed;
             //monitoring for page loading
@@ -44,13 +48,11 @@ namespace WPFChatApp
         public async Task AnimateInAsync()
         {
             if (this.PageLoadAnimation == PageAnimation.None)
-            {
                 return;
-            }
             switch (this.PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRightAsync:
-                    await this.SlideAndFadeInFromRightAsync(this.SlideInSeconds);
+                    await this.SlideAndFadeInFromRightAsync(this.SlideSeconds, width: (int)Application.Current.MainWindow.Width);
                     break;
             }
         }
@@ -59,14 +61,11 @@ namespace WPFChatApp
         public async Task AnimateOutAsync()
         {
             if (this.PageUnloadAnimation == PageAnimation.None)
-            {
                 return;
-            }
-
             switch (this.PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeOutToRightAsync:
-                    await this.SlideAndFadeOutToRightAsync(this.SlideOutSeconds);
+                    await this.SlideAndFadeOutToRightAsync(this.SlideSeconds, width: (int)Application.Current.MainWindow.Width);
                     break;
             }
 

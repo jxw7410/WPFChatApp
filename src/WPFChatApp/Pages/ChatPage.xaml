@@ -6,18 +6,83 @@
       xmlns:local="clr-namespace:WPFChatApp"
       xmlns:core="clr-namespace:WPFChatApp.Core;assembly=WPFChatApp.Core"
       mc:Ignorable="d" 
-      x:Name="mLoginPage"
+      x:Name="mChatPage"
       d:DesignHeight="700" d:DesignWidth="700"
-      Title="LoginPage">
-   
+      >
+
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint ="1,0">
-                <GradientStop Color="Azure" Offset="1.0"/>
-                <GradientStop Color="SkyBlue" Offset="0.5"/>
-                <GradientStop Color="Azure" Offset="0.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <Grid.RowDefinitions>
+            <!--Title Bar-->
+            <RowDefinition Height="Auto"/>
+            <!--Chat List-->
+            <RowDefinition Height="*"/>
+            <!--Message sent text Box-->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="P1" Foreground="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Style="{StaticResource TextButtonV2}" Content="Search"/>
+                <Button Style="{StaticResource TextButtonV2}" Content=". . ."/>
+            </StackPanel>
+        </Grid>
+
+        <local:ChatMessageListControl Grid.Row="1" VerticalAlignment="Bottom"/>
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom">
+            <!--Type Status bar-->
+            <TextBlock Text="Typing . . ." HorizontalAlignment="Right" FontSize="16" Foreground="White"/>
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <!--Attached Button-->
+                    <ColumnDefinition Width="Auto"/>
+                    <!--Message Box-->
+                    <ColumnDefinition Width="*"/>
+                    <!--Emote Button-->
+                    <ColumnDefinition Width="Auto"/>
+                    <!--Send Button-->
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    VerticalAlignment="Top"
+                    Grid.Column="0" 
+                    x:Name="Attach" 
+                    Foreground="White"  
+                    Margin="10 10" 
+                    Padding="10" 
+                    FontWeight="Bold"/>
+                <TextBox 
+                    Grid.Column="1" 
+                    Foreground="Gray" 
+                    Text="Write a message..." 
+                    VerticalAlignment="Center" 
+                    FontSize="20" 
+                    BorderThickness="0"
+                    AcceptsReturn="True"
+                    AcceptsTab="True"
+                    MaxHeight="100"
+                    VerticalScrollBarVisibility="Auto"/>
+                <Button 
+                    VerticalAlignment="Top"
+                    Grid.Column="2" 
+                    x:Name= "Emote"  
+                    Foreground="White" 
+                    Margin="10 10" 
+                    Padding="10"
+                    FontWeight="Bold"/>
+                <Button 
+                    VerticalAlignment="Top"
+                    Grid.Column="3" 
+                    x:Name="Send" 
+                    Content="Send" 
+                    Margin="10 10" 
+                    Padding="20 10" 
+                    FontWeight="Bold"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </local:BasePage>

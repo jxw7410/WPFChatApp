@@ -18,7 +18,7 @@ namespace WPFChatApp.Core
         public LoginViewModel()
         {          
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
-            SignUpPageCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
+            SignUpPageCommand = new RelayCommand(async () => await SignUpAsync());
         }
 
         /// <summary>
@@ -50,23 +50,22 @@ namespace WPFChatApp.Core
             //Advanced Approach
             await RunCommand(() => this.IsLoggingIn, async () =>
              {
-                 await Task.Delay(3000);                
+                 await Task.Delay(2000);                
                  var email = this.Email;
                  (parameter as IHavePassword).SecurePassword.Unsecure();
- 
-             });
+                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.MainChat);
 
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Error;
-            await Task.Delay(1);
+             });      
         }
 
-        public async Task SignUpAsync(object parameter)
+        public async Task SignUpAsync()
         {
 
-            IoC.Get<ApplicationViewModel>().SideMenuVisible ^= true;
-            return;
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.SignUp;
+            //IoC.Get<ApplicationViewModel>().SideMenuVisible ^= true;
+           // return;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.SignUp);
             await Task.Delay(1);
+            
         }
         #endregion
 

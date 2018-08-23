@@ -40,7 +40,7 @@ namespace WPFChatApp
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
                 From = new Thickness(0),
-                To = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
+                To = new Thickness( -offset, 0, keepMargin ? offset : 0, 0),
                 DecelerationRatio = decelerationRatio
             };
             Storyboard.SetTargetProperty(Animation, new PropertyPath("Margin"));

@@ -111,15 +111,22 @@
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryBoardAnimationHelper.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\FocusProperty.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistoryAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxProperties.cs" />
-    <Compile Include="Control\ChatListControl.xaml.cs">
+    <Compile Include="Control\ChatMessage\ChatMessageListControl.xaml.cs">
+      <DependentUpon>ChatMessageListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ChatList\ChatListControl.xaml.cs">
       <DependentUpon>ChatListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\Chat\ChatListUserControl.xaml.cs">
+    <Compile Include="Control\ChatList\ChatListUserControl.xaml.cs">
       <DependentUpon>ChatListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ChatMessage\ChatMessageListUserControl.xaml.cs">
+      <DependentUpon>ChatMessageListUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
@@ -127,7 +134,11 @@
     <Compile Include="Control\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainView\WindowResizerDLL\WindowResizer.cs" />
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\EmptyPage.xaml.cs">
+      <DependentUpon>EmptyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ErrorPage.xaml.cs">
       <DependentUpon>ErrorPage.xaml</DependentUpon>
     </Compile>
@@ -141,17 +152,30 @@
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverter\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverter\ChatBubble\ChatBubbleBackgroundColor.cs" />
     <Compile Include="ValueConverter\IocConverter.cs" />
     <Compile Include="ValueConverter\BaseValueConverter.cs" />
+    <Compile Include="ValueConverter\ReadTimeReformatConverter.cs" />
+    <Compile Include="ValueConverter\ChatBubble\ChatBubbleTriangleAlignment.cs" />
     <Compile Include="ValueConverter\StringRGBToBrushConverter.cs" />
+    <Compile Include="ValueConverter\SentTimeReformatConverter.cs" />
+    <Compile Include="ValueConverter\SentByMeAlignmentConverter.cs" />
     <Compile Include="ValueConverter\VisibilityPropertyConverter.cs" />
     <Compile Include="ViewModel\ApplicationPageLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
-    <Page Include="Control\ChatListControl.xaml">
+    <Page Include="Control\ChatMessage\ChatMessageListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\ChatList\ChatListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\Chat\ChatListUserControl.xaml">
+    <Page Include="Control\ChatList\ChatListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ChatMessage\ChatMessageListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +199,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EmptyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\ErrorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

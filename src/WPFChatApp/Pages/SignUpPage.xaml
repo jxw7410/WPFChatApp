@@ -8,36 +8,37 @@
       mc:Ignorable="d" 
       x:Name="mSignUpPage"
       d:DesignHeight="700" d:DesignWidth="700"
-      Title="LoginPage">
-
-
+     >
     <Grid>
         <Grid.Background>Transparent
-            </Grid.Background>
-
+        </Grid.Background>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility ="Auto" >
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center">
                 <Border Background="{StaticResource BackGroundVeryLightBrush}"
                         CornerRadius="10"
-                        Padding="15,50,15,15"
-                        Width="400"
+                        Padding="20,80,20,20"
+                        Width="250"
                         Margin="50, 50, 50, 0">
 
                     <StackPanel>
                         <TextBlock Text="Sign Up" FontSize="30" Foreground="DarkBlue"/>
                         <TextBlock Text="Credit goes to AngelSix" FontSize="12" Foreground="LightGray"/>
-                        <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}"/>
+                        <TextBox Tag="{Binding EmailTag}"  Text="{Binding Email}" Style="{StaticResource TextBoxPlaceHolder}" local:FocusProperty.Value ="True"/>
                         <PasswordBox x:Name="PasswordText" Tag="{Binding PasswordTag}" Style="{StaticResource PasswordPlaceHolder}"/>
                         <Button x:Name="SignUp" 
-                                local:IsBusyProperty.Value ="{Binding IsSigningUp}"  
+                                IsDefault="True"
+                                local:IsBusyProperty.Value ="{Binding IsSigningIn}"  
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center"
+                                Margin ="35 10"
                                 FontWeight="Bold" 
                                 Command="{Binding SignUpCommand}" 
                                 CommandParameter="{Binding ElementName=mSignUpPage}"/>
                     </StackPanel>
                 </Border>
-                <Button Content="I have an account" HorizontalAlignment="Center" Style="{StaticResource TextButton}"/>
+                <Button Content="I have an account" HorizontalAlignment="Center" Style="{StaticResource TextButton}"
+                        Command="{Binding LoginPageCommand}" 
+                        CommandParameter="{Binding ElementName=mSignUpPage}" />
             </StackPanel>
         </ScrollViewer>
 

@@ -12,6 +12,7 @@ namespace WPFChatApp
     {
         // Flag to indicate whether this is the first time this property has been loaded
         public bool FirstLoad { get; set; } = true;
+
         public override void OnValueUpdated(DependencyObject sender, object value)
         {
             // get the framework element

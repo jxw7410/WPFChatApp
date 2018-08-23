@@ -3,8 +3,8 @@
     public class ApplicationViewModel : ViewModelBase
     {
         #region Private Members
-        private ApplicationPage currentPage = ApplicationPage.Login;
-        private bool sideMenuVisible = false;
+        private ApplicationPage currentPage = ApplicationPage.MainChat;
+        private bool sideMenuVisible = true;
 
         #endregion
 
@@ -15,7 +15,7 @@
             {
                 return currentPage;
             }
-            set
+            private set
             {
                 currentPage = value;
                 PropertyChangedEvent("CurrentPage");
@@ -32,6 +32,17 @@
                 sideMenuVisible = value;
                 PropertyChangedEvent("SideMenuVisible");
             }
+        }
+
+        /// <summary>
+        /// Navigate to desired page
+        /// </summary>
+        /// <param name="page"></param>
+        public void GoToPage(ApplicationPage page)
+        {
+            CurrentPage = page;
+            if (page == ApplicationPage.MainChat)
+                SideMenuVisible = true;
         }
         #endregion
     }

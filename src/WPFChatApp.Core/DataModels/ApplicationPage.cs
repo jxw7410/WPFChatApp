@@ -12,6 +12,7 @@ namespace WPFChatApp.Core
         Login = 1,
         SignUp = 2,
         MainChat = 3,
+        Empty = 4,
 
     }
 }

@@ -7,7 +7,7 @@ namespace WPFChatApp
     public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
     {
 
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object value, Type targetType = null, object parameter = null, CultureInfo culture = null)
         {
 
             switch ((ApplicationPage)value)
@@ -20,6 +20,8 @@ namespace WPFChatApp
                     return new ChatPage();
                 case ApplicationPage.SignUp:
                     return new SignUpPage();
+                case ApplicationPage.Empty:
+                    return new EmptyPage();
                 default:
                     Debugger.Break();
                     return null;

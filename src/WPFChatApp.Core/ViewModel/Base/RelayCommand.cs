@@ -23,9 +23,7 @@ namespace WPFChatApp.Core
 
         public bool CanExecute(object parameter)
         {
-            if (parameter != null)
-                return true;
-            return false;
+            return true;
         }
 
 

@@ -33,6 +33,19 @@ namespace WPFChatApp
             CloseCommand = new RelayCommand(() => myWindow.Close());
             MenuCommand = 
                 new RelayCommand(() => SystemCommands.ShowSystemMenu(myWindow, myWindow.PointToScreen(Mouse.GetPosition(myWindow))));
+
+
+            mWindowResizer = new WindowResizer(myWindow);
+
+            // Listen out for dock changes
+            mWindowResizer.WindowDockChanged += (dock) =>
+            {
+                // Store last position
+                mDockPosition = dock;
+
+                // Fire off resize events
+                WindowResized();
+            };
         }
         #endregion
         #region public Properties
@@ -74,6 +87,7 @@ namespace WPFChatApp
         public int MinHeight { get; set; } = 400;
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
+        public bool Borderless => (myWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked);
         public void WindowResized()
         {
             PropertyChangedEvent("ResizeBorderTHICCness");
@@ -87,7 +101,8 @@ namespace WPFChatApp
         private Window myWindow;
         private int outerMarginSize = 2;
         private int windowCurveEdge = 10;
-       
+        private WindowResizer mWindowResizer;
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
         #endregion
 
     }

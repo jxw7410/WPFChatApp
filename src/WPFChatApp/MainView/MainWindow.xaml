@@ -35,7 +35,6 @@
                                 <Border x:Name="Container"
                                         CornerRadius="{Binding WindowCurveEdgeRadius, FallbackValue=10}"
                                         Background="{StaticResource BackGroundLightBrush}">
-                                    
                                 </Border>
 
                                 <Border CornerRadius="{Binding WindowCurveEdgeRadius, FallbackValue=10}"
@@ -123,13 +122,15 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <local:PageHost Grid.Column="1"                
+        <local:PageHost 
+               Grid.Column="1"                
                d:DataContext=""
                DataContext ="{Binding ApplicationViewModel.CurrentPage, 
                           Source={x:Static local:ApplicationPageLocator.Instance}, 
                           Converter={local:ApplicationPageValueConverter}}"
                CurrentPage="{Binding}">
         </local:PageHost>
+        
 
 
         <local:SideMenuControl  local:AnimateSlideInFromLeftProperty.Value ="{Binding ApplicationViewModel.SideMenuVisible, 
