@@ -87,10 +87,10 @@ namespace WPFChatApp.Core
         }//Flagging the Login Button
         #endregion
 
-        private bool LogInFlag;
-
         public string EmailTag { get; set; } = "Email";
         public string PasswordTag { get; set; } = "Password";
+
+        private bool LogInFlag;
 
     }
 }

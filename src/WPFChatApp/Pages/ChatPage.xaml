@@ -33,6 +33,11 @@
         </Grid>
 
         <local:ChatMessageListControl Grid.Row="1" VerticalAlignment="Bottom"/>
+        <local:PopUpBubble 
+            Grid.Row="1" 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Left"
+            Visibility="{Binding IsTriggered, Converter={local:VisibilityPropertyConverter}, ConverterParameter=True}"/>
         <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom">
             <!--Type Status bar-->
             <TextBlock Text="Typing . . ." HorizontalAlignment="Right" FontSize="16" Foreground="White"/>
@@ -54,18 +59,23 @@
                     Foreground="White"  
                     Margin="10 10" 
                     Padding="10" 
-                    FontWeight="Bold"/>
+                    FontWeight="Bold"
+                    Command="{Binding AttachedButtonCommand}"/>
                 <TextBox 
+                    Tag="Write a message..."
+                    Text="{Binding TextBoxText}"
+                    Style="{StaticResource TextBoxPlaceHolder}"
                     Grid.Column="1" 
+                    VerticalScrollBarVisibility="Auto"
                     Foreground="Gray" 
-                    Text="Write a message..." 
+                    Background="White"                   
                     VerticalAlignment="Center" 
                     FontSize="20" 
                     BorderThickness="0"
                     AcceptsReturn="True"
                     AcceptsTab="True"
                     MaxHeight="100"
-                    VerticalScrollBarVisibility="Auto"/>
+                    />
                 <Button 
                     VerticalAlignment="Top"
                     Grid.Column="2" 
